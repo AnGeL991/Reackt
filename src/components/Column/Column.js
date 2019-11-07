@@ -11,7 +11,7 @@ import Icon from '../Icon/Icon';
 
 class Column extends React.Component {
   state ={
-    card: this.props.card || [],
+    cards: this.props.cards || [],
   }  
   static propTypes = {
         title: PropTypes.node.isRequired,
@@ -28,7 +28,7 @@ class Column extends React.Component {
             cards: [
               ...state.cards,
               {
-                key,
+                key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
                 title,
               }
             ]
@@ -41,7 +41,7 @@ class Column extends React.Component {
           <section className={styles.component}>
               <h3 className={styles.title}><span className={styles.icon}/><Icon name={this.props.icon}/>{this.props.subtitle}</h3>
               <div className ={styles.cards}>
-                {this.state.card.map(({key, ...cardProps}) => (
+                {this.state.cards.map(({key, ...cardProps}) => (
                   <Card key ={key} {...cardProps} />
                 ))}
               </div>
