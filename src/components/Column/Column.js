@@ -6,50 +6,54 @@ import { settings } from '../../data/dataStore';
 import Creator from '../Creator/Creator';
 import Icon from '../Icon/Icon';
 
-
-
-
 class Column extends React.Component {
-  state ={
+  state = {
     cards: this.props.cards || [],
-  }  
+  };
   static propTypes = {
-        title: PropTypes.node.isRequired,
-        icon: PropTypes.string,
-        cards: PropTypes.array,
-        addCard: PropTypes.func,
-      }
-      static defaultProps = {
-        icon: settings.defaultColumnIcon,
-      };
-      addCard(title){
-        this.setState(state => (
-          {
-            cards: [
-              ...state.cards,
-              {
-                key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
-                title,
-              }
-            ]
-          }
-        ))
-
-      }
-    render(){
-        return(
-          <section className={styles.component}>
-              <h3 className={styles.title}><span className={styles.icon}/><Icon name={this.props.icon}/>{this.props.subtitle}</h3>
-              <div className ={styles.cards}>
-                {this.state.cards.map(({key, ...cardProps}) => (
-                  <Card key ={key} {...cardProps} />
-                ))}
-              </div>
-              <div className={styles.creator}>
-            <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
-            </div>
-          </section>
-        )
-    }
+    title: PropTypes.node.isRequired,
+    icon: PropTypes.string,
+    cards: PropTypes.array,
+    addCard: PropTypes.func,
+  };
+  static defaultProps = {
+    icon: settings.defaultColumnIcon,
+  };
+  addCard(title) {
+    this.setState(state => ({
+      cards: [
+        ...state.cards,
+        {
+          key: state.cards.length
+            ? state.cards[state.cards.length - 1].key + 1
+            : 0,
+          title,
+        },
+      ],
+    }));
+  }
+  render() {
+    return (
+      <section className={styles.component}>
+        <h3 className={styles.title}>
+          {' '}
+          <span className={styles.icon} />
+          <Icon name={this.props.icon} /> {this.props.subtitle}{' '}
+        </h3>{' '}
+        <div className={styles.cards}>
+          {' '}
+          {this.state.cards.map(({ key, ...cardProps }) => (
+            <Card key={key} {...cardProps} />
+          ))}{' '}
+        </div>{' '}
+        <div className={styles.creator}>
+          <Creator
+            text={settings.cardCreatorText}
+            action={title => this.addCard(title)}
+          />{' '}
+        </div>{' '}
+      </section>
+    );
+  }
 }
 export default Column;

@@ -10,19 +10,18 @@ const Hero = props => ( {
   render() {
     return (
       <header className={styles.component}>
-          <h2 className={styles.title}>{ReactHtmlParser(props.titleText)}</h2>
-          <img className={styles.image} src={props.imageUrl}/>
+        <h2 className={styles.title}>{ReactHtmlParser(props.titleText)}</h2>
+        <img className={styles.image} src={props.imageUrl}/>
       </header>
-    )
-  }
-
+    );
+  },
 });
 Hero.propTypes = {
-    titleText: PropTypes.node.isRequired,
-    imageUrl: PropTypes.string,
-  };
+  titleText: PropTypes.node.isRequired,
+  imageUrl: PropTypes.string,
+};
 Hero.defaultProps = {
-    titleText: 'Things to do soon',
-    imageUrl: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
-  };  
+  titleText: 'Things to do soon',
+  imageUrl: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+};  
 export default Hero;
