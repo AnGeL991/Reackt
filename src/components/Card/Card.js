@@ -6,8 +6,10 @@ class Card extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
   };
+ 
   render() {
-    return <h2 className={styles.component}> {this.props.title} </h2>;
+    const { title } = this.props;
+    return <h2 className={styles.component}> {title} </h2>;
   }
 }
 export default Card;
