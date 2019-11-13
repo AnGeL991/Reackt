@@ -7,7 +7,8 @@ class App extends React.Component {
   static propTypes = {
     title: PropTypes.node,
     subtitle: PropTypes.node,
-    lists: PropTypes.arroy,
+    lists: PropTypes.array,
+    
   };
   render() {
     
@@ -22,6 +23,7 @@ class App extends React.Component {
       </main>
     );
   }
+ 
 }
 
 export default App;
