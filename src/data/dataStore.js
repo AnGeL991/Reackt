@@ -18,6 +18,16 @@ export const pageContents = {
   title: 'My first React app',
   subtitle: 'A simple to-do app, with lists, columns and cards',
 };
+export const infoContents ={
+  title: 'info',
+  desription: 'Page info',
+  imageUrl:'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+};
+export const infoFAQ ={
+  title: 'FAQ',
+  desription: 'This is a FAQ site',
+  imageUrl:'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+};
 
 export const listData = {
   title: 'Things to do <sup>soon!</sup>',
@@ -76,6 +86,12 @@ const lists = [
   {
     id: 'list-1',
     title: 'Things to do <sup>soon!</sup>',
+    description: 'Interesting things I want to check out!',
+    image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  },
+  {
+    id:'list-2',
+    title: 'Next page to do<sup>soon!</sup>',
     description: 'Interesting things I want to check out!',
     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   },
