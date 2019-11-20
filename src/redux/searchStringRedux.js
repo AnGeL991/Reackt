@@ -13,7 +13,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 export const CHANGE = createActionName('CHANGE');
 
 // action creators
-export const createAction_Change = payload => ({ payload, type:CHANGE });
+export const createAction_changeSearchString = payload => ({ payload, type:CHANGE });
 
 
 // reducer
