@@ -1,21 +1,26 @@
 import React from 'react';
-import styles from './Column.scss';
+import styles from './SearchResult.scss';
 import PropTypes from 'prop-types';
 import Card from '../Card/Card.js';
 import { settings } from '../../data/dataStore';
 import Icon from '../Icon/Icon';
 
-class Column extends React.Component {
+class SearchResults extends React.Component {
 
   static propTypes = {
     title: PropTypes.node.isRequired,
     icon: PropTypes.string,
     cards: PropTypes.array,
+    match: PropTypes.any,
+    changeSearchString: PropTypes.func,
     
   };
   static defaultProps = {
     icon: settings.defaultColumnIcon,
   };
+  componentDidMount(){
+    this.props.changeSearchString(this.props.match.params.searchString);
+  }
   render() {
     const { title, icon, cards } = this.props;
     return (
@@ -36,5 +41,8 @@ class Column extends React.Component {
       </section>
     );
   }
+  componentDidUpdate(){
+    this.props.changeSearchString(this.props.match.params.searchString);
+  }
 }
-export default Column;
+export default SearchResults;
